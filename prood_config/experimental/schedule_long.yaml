@@ -1,0 +1,26 @@
+# @package _global_ 
+
+
+architecture:
+  num_classes: 1
+  use_last_bias: true
+  last_layer_neg: true
+
+train:
+  use_adam: true
+  
+  schedule:
+    lr_schedule_type: constant
+    lr_schedule: [1e-4, 2e-5, 4e-6, 8e-7]
+    lr_schedule_epochs: [500, 750, 850, 1000]
+    
+    kappa_schedule_type: linear
+    kappa_schedule: [0.0, 1.0, 1.0]
+    kappa_schedule_epochs: [300, 1000]
+    
+    eps_schedule_type: linear
+    eps_schedule: [0.0, 0.01, 0.01]
+    eps_schedule_epochs: [300, 1000]
+    
+    weight_decay: 0.0005
+    

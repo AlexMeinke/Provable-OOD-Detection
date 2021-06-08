@@ -1,0 +1,25 @@
+# @package _global_ 
+
+
+architecture:
+  arch_style: joint
+  bias_shift: 0.
+
+train:
+  train_type: plain
+  
+  in_loss_type: ce_logconf
+  out_loss_type: oe_logconf
+  
+  schedule:    
+    kappa_schedule_type: constant
+    kappa_schedule: [1.]
+    kappa_schedule_epochs: [100]
+    
+    weight_decay: 0.0005
+    
+tb_name:
+    string_base: 
+    hp_base: {type: train.train_type, S: architecture.detector_path, shift: architecture.bias_shift} 
+    string_extra: 
+    hp_extra: 

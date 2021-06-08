@@ -1,0 +1,31 @@
+# @package _global_ 
+
+gpu: 0
+
+architecture:
+  num_classes: 1
+  use_last_bias: true
+  last_layer_neg: true
+
+train:
+  batch_size: 32
+  use_adam: true
+  
+  schedule:
+    lr_schedule_type: constant
+    lr_schedule: [1e-4, 2e-5, 4e-6, 8e-7]
+#     lr_schedule_epochs: [50, 75, 85, 100]
+    lr_schedule_epochs: [25, 35, 45, 50]
+    
+    kappa_schedule_type: linear
+    kappa_schedule: [0.0, 1.0, 1.0]
+    kappa_schedule_epochs: [25, 50]
+    
+    eps_schedule_type: linear
+    eps_schedule: [0.0, 0.01, 0.01]
+#     eps_schedule_epochs: [80, 100]
+    eps_schedule_epochs: [25, 50]
+    
+    weight_decay: 0.0005
+
+    

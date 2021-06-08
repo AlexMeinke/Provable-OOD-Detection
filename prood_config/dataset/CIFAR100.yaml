@@ -1,0 +1,15 @@
+# @package _global_ 
+
+dset_in_name: CIFAR100
+dset_out_name: TINY
+
+architecture:
+  dset_in_name: CIFAR100
+  num_classes: 100
+  detector_path: 1 #path or name
+  
+train:
+  schedule:
+    lr_schedule_type: constant
+    lr_schedule: [0.1, 0.01, 0.001, .0001]
+    lr_schedule_epochs: [50, 75, 90, 100]

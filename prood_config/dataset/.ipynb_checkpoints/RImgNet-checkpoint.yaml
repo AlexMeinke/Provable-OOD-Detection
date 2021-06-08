@@ -1,0 +1,26 @@
+# @package _global_ 
+
+gpu: [0,1,2,3]
+
+dset_in_name: RImgNet
+dset_out_name: NotRImgNet
+
+architecture:
+  dset_in_name: RImgNet
+  num_classes: 9
+  arch_size: SR
+  detector_path: 5 #path or name or doc_id in database
+  
+augmentation:
+  autoaugment: False
+  
+train:
+  batch_size: 128
+  
+  schedule:
+    lr_schedule_type: constant
+    lr_schedule: [0.01, 0.1, 0.01, 0.001]
+    lr_schedule_epochs: [1, 30, 60, 75]
+  
+eval:
+  batch_size: 25

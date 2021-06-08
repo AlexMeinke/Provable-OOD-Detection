@@ -1,0 +1,24 @@
+# @package _global_ 
+
+
+architecture:
+  arch_style: RN
+
+train:
+  train_type: OE
+  
+  in_loss_type: ce
+  out_loss_type: oe
+  
+  schedule:   
+    kappa_schedule_type: constant
+    kappa_schedule: [1.]
+    kappa_schedule_epochs: [100]
+    
+    weight_decay: 0.0005
+    
+tb_name:
+    string_base: 
+    hp_base: {type: train.train_type}
+    string_extra: 
+    hp_extra: 

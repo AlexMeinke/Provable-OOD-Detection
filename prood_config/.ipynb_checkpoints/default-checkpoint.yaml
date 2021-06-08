@@ -1,0 +1,62 @@
+defaults:
+  - dataset: CIFAR10
+  - experimental: schedule
+    optional: true
+    
+gpu: 0 # Choose GPU, -1 for CPU.
+
+tb_name:
+    string_base: 
+    hp_base: {S: architecture.arch_size, L: train.in_loss_type, ds: dset_in_name} 
+    string_extra: 
+    hp_extra: 
+    
+redirect: true # redirect output to log
+detect_anomaly: false
+
+augmentation:
+  train_exclude: H   # H to exclude CIFAR, CEDA11 to exclude CEDA high conf samples.
+  autoaugment: true
+  hflip: true
+  crop: 4
+
+architecture:
+  arch_style: CNN
+  arch_size: S
+  file_path: ~
+  use_last_bias: false
+  last_layer_neg: false # allow only negative weights in last layer
+
+train:
+  expfolder: ~
+  tb_folder: default
+  batch_size: 128
+  use_adam: false
+  train_type: GOOD
+ 
+  eps: 0.01
+  
+  momentum: 0.9
+  
+  in_loss_type: binary
+  out_loss_type: binary
+  
+  schedule:
+    lr_schedule_type: constant
+    lr_schedule: [.1, .1, 0.01, 0.001, 0.0001]
+    lr_schedule_epochs: [1, 50, 75, 90, 100]
+    
+    kappa_schedule_type: constant
+    kappa_schedule: [0., 0.01]
+    kappa_schedule_epochs: [10,  100]
+    
+    eps_schedule_type: constant
+    eps_schedule: [0.01]
+    eps_schedule_epochs: [100]
+    
+    weight_decay: 0.0005
+    
+eval:
+  eps: 0.01
+  batch_size: 100
+  
