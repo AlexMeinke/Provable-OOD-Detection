@@ -1,15 +1,19 @@
 # Provably Robust Detection of Out-of-distribution Data (almost) for free
 
+
+<p align="center"><img src="teaser.png" width="600"></p>
+
+This repo contains the code that accompanies the paper [Provably Robust Detection of Out-of-distribution Data (almost) for free](https://arxiv.org/abs/2106.04260). We give both local as well as global guarantees that a classifier makes low-confidence predictions on out-of-distribution data. And here's the kicker: you can get these guarantees without loosing performance on either classification or clean OOD performance. We do this by splitting the work between a provable binary discriminator between in- and out-distribution and an off-the-shelf classifier. 
+
 ## Configuration
-Install requirements (honestly, they are likely a bit overkill) and create an evals folder (within project folder).
+Install requirements (honestly, they are likely pretty overkill).
 ```
 pip install -r requirements.txt
-mkdir evals
 ```
 
 Configure the paths to your datasets within **paths_config.py**. If you want to configure different test out-distributions, please do so in the **val_loader_out_dicts** under **utils/dataloaders/dataloading.py**.
 
-## Training Models
+## Training
 All training is using the **train_ProoD.py** function with the hyperparameters being managed with [hydra](https://github.com/facebookresearch/hydra). We show code for plain training, [OE](https://arxiv.org/abs/1812.04606) and our Prood-Disc on CIFAR10:
 ```
 python train_ProoD.py gpu=0 experimental=plain dataset=CIFAR10 train.train_type=plain 
@@ -26,7 +30,9 @@ All models (trained on a single GPU) are evaluated automatically after training.
 ```
 python gen_eval.py --gpu 0 --dataset CIFAR10 --doc_id 1
 ```
-The evaluations saved under the same database entry that the model is loaded from. If you want to register a model in the database that was not trained in the pipeline you have to do so manually by providing architecture args that can be understood by **utils/factories.py** and **utils/eval_pipeline.py** (adavanced usage).
+The databases come pre-configured with the models shown in Table 2 in the paper. The pre-trained weights can be found [here](https://nc.mlcloud.uni-tuebingen.de/index.php/s/A8XMkLR4BPwLcej). Put them under **models/<dataset>/<name>.pt** or reconfigure **args.architecture.file_path** in the respective database in order to use them. You can conveniently load models by using the function **utils.model_zoo.from_database**.
+
+The evaluations are saved under the same database entry that the model is loaded from. If you want to register a model in the database that was not trained in the pipeline you have to do so manually by providing architecture args that can be understood by **utils/factories.py** and **utils/eval_pipeline.py** (adavanced usage).
 
 For the experiments in Appendix B you can run
 ```
