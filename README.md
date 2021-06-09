@@ -30,8 +30,6 @@ All models (trained on a single GPU) are evaluated automatically after training.
 ```
 python gen_eval.py --gpu 0 --dataset CIFAR10 --doc_id 1
 ```
-The databases come pre-configured with the models shown in Table 2 in the paper. The pre-trained weights can be found [here](https://nc.mlcloud.uni-tuebingen.de/index.php/s/A8XMkLR4BPwLcej). Put them under **models/&lt;dataset&gt;/&lt;name&gt;.pt** or reconfigure **args.architecture.file_path** in the respective database in order to use them. You can conveniently load models by using the function **utils.model_zoo.from_database**.
-
 The evaluations are saved under the same database entry that the model is loaded from. If you want to register a model in the database that was not trained in the pipeline you have to do so manually by providing architecture args that can be understood by **utils/factories.py** and **utils/eval_pipeline.py** (adavanced usage).
 
 For the experiments in Appendix B you can run
@@ -39,3 +37,6 @@ For the experiments in Appendix B you can run
 python gen_eval.py --gpu 0 --dataset CIFAR10 --disc_id 1 --class_id 2 --bias_shift 3
 ```
 which registers a new model in the database that consists of a discriminator (loaded from doc_id=1) and a classifier (with doc_id=2) and combines them under a bias shift of 3. This new model then automatically gets evaluated.
+
+## Pre-Trained Models
+The databases come pre-configured with the models shown in Table 2 in the paper. The pre-trained weights can be found [here](https://nc.mlcloud.uni-tuebingen.de/index.php/s/A8XMkLR4BPwLcej). Put them under **models/&lt;dataset&gt;/&lt;name&gt;.pt** or reconfigure **args.architecture.file_path** in the respective database in order to use them. You can conveniently load models by using the function **utils.model_zoo.from_database**.
