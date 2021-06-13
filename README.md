@@ -40,3 +40,15 @@ which registers a new model in the database that consists of a discriminator (lo
 
 ## Pre-Trained Models
 The databases come pre-configured with the models shown in Table 2 in the paper. The pre-trained weights can be found [here](https://nc.mlcloud.uni-tuebingen.de/index.php/s/A8XMkLR4BPwLcej). Some weights are taken directly from [ATOM](https://github.com/jfc43/informative-outlier-mining) or [GOOD](https://github.com/j-cb/GOOD) and just rehosted here for convenience. Put them under **models/&lt;dataset&gt;/&lt;name&gt;.pt** or reconfigure **args.architecture.file_path** in the respective database in order to use them. You can conveniently load models by using the function **utils.model_zoo.from_database**.
+
+
+## Cite Us
+
+```
+@article{meinke2021provably,
+  title={Provably Robust Detection of Out-of-distribution Data (almost) for free},
+  author={Meinke, Alexander and Bitterwolf, Julian and Hein, Matthias},
+  journal={arXiv preprint arXiv:2106.04260},
+  year={2021}
+}
+```
