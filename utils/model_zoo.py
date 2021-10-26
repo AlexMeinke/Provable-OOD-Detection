@@ -16,8 +16,7 @@ import utils.models.hendrycks as hendrycks
 import utils.models.resnet as rn
 import utils.models.modules_ibp as ibp
 import paths_config
-import utils.factories as fac
-
+from utils import factories as fac
 
 class dotdict(dict):
     """dot.notation access to dictionary attributes"""
