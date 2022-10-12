@@ -3,7 +3,7 @@
 
 <p align="center"><img src="teaser.png" width="600"></p>
 
-This repo contains the code that accompanies the paper [Provably Robust Detection of Out-of-distribution Data (almost) for free](https://arxiv.org/abs/2106.04260). We give both local as well as global guarantees that a classifier makes low-confidence predictions on out-of-distribution data. And here's the kicker: you can get these guarantees without loosing performance on either classification or clean OOD performance. We do this by splitting the work between a provable binary discriminator between in- and out-distribution and an off-the-shelf classifier. 
+This repo contains the code that accompanies our NeurIPS 2022 paper [Provably Robust Detection of Out-of-distribution Data (almost) for free](https://arxiv.org/abs/2106.04260). We give both local as well as global guarantees that a classifier makes low-confidence predictions on out-of-distribution data. And here's the kicker: you can get these guarantees without loosing performance on either classification or clean OOD performance. We do this by splitting the work between a provable binary discriminator between in- and out-distribution and an off-the-shelf classifier. 
 
 ## Configuration
 Install requirements (honestly, they are likely pretty overkill).
@@ -45,10 +45,10 @@ The databases come pre-configured with the models shown in Table 2 in the paper.
 ## Cite Us
 
 ```
-@article{meinke2021provably,
+@inproceedings{meinke2022provably,
   title={Provably Robust Detection of Out-of-distribution Data (almost) for free},
   author={Meinke, Alexander and Bitterwolf, Julian and Hein, Matthias},
-  journal={arXiv preprint arXiv:2106.04260},
+  booktitle={NeurIPS},
   year={2021}
 }
 ```
