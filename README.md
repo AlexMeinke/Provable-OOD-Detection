@@ -49,6 +49,6 @@ The databases come pre-configured with the models shown in Table 2 in the paper.
   title={Provably Robust Detection of Out-of-distribution Data (almost) for free},
   author={Meinke, Alexander and Bitterwolf, Julian and Hein, Matthias},
   booktitle={NeurIPS},
-  year={2021}
+  year={2022}
 }
 ```
